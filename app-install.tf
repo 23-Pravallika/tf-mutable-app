@@ -6,7 +6,7 @@ resource "null_resource" "app" {
           type     = "ssh"
           user     = local.SSH_USER
           password = local.SSH_PASSWD
-          host     = local.INSTANCE_IPS
+          host     = element(local.INSTANCE_IPS, count.index)
   }
     inline = [
       "ansible-pull -U https://github.com/23-Pravallika/Ansible.git robo-pull.yml -e ENV=dev -e COMPONENT=cart -e APP_VERSION=${var.APP_VERSION}"
