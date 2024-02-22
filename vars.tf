@@ -4,3 +4,5 @@ variable "INSTANCE_TYPE" {}
 variable "COMPONENT" {}
 variable "OD_INSTANCE_COUNT" {}
 variable "APP_PORT" {}
+variable "APP_VERSION" {}
+
