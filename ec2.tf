@@ -20,9 +20,6 @@ resource "aws_instance" "on_demand" {
   vpc_security_group_ids = [aws_security_group.allow-app.id]
   subnet_id = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_ID, count.index)
 
-  tags = {
-    Name = "${var.COMPONENT}-${var.ENV}-on-demand"
-  }
 }
 
 # creates the tag for instances
