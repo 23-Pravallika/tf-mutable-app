@@ -12,7 +12,7 @@ resource "aws_spot_instance_request" "spot" {
   }
 }
 
-# creates Spot instance
+# creates on Demand instance
 resource "aws_instance" "on_demand" {
   count         = var.OD_INSTANCE_COUNT  
   ami           = data.aws_ami.my_ami.id
