@@ -1,4 +1,4 @@
-resource "aws_lb_target_group" "alb-app-tg" {
+resource "aws_lb_target_group" "alb_app_tg" {
   name        = "${var.COMPONENT}-${var.ENV}-tg"
   port        = var.APP_PORT
   protocol    = "HTTP"
