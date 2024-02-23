@@ -5,4 +5,4 @@ variable "COMPONENT" {}
 variable "OD_INSTANCE_COUNT" {}
 variable "APP_PORT" {}
 variable "APP_VERSION" {}
-variable "LB_TYPE" {}
+
