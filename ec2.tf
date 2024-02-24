@@ -23,12 +23,11 @@ resource "aws_instance" "on_demand" {
 }
 
 # creates the tag for instances
-resource "aws_ec2_tag" "tags" {
-  count       = var.SPOT_INSTANCE_COUNT + var.OD_INSTANCE_COUNT  
+resource "aws_ec2_tag" "ec2_tags" {
+  count       = var.OD_INSTANCE_COUNT + var.SPOT_INSTANCE_COUNT
   resource_id = element(local.INSTANCE_IDS, count.index)
   key         = "Name"
   value       = "${var.COMPONENT}-${var.ENV}"
 }
-
 
 
