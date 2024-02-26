@@ -6,6 +6,7 @@ resource "aws_spot_instance_request" "spot" {
   wait_for_fulfillment = true
   vpc_security_group_ids = [aws_security_group.allow-app.id]
   subnet_id = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_ID, count.index)
+  iam_instance_profile = "practice-admin"
   
   tags = {
     Name = "${var.COMPONENT}-${var.ENV}-spot"
@@ -19,6 +20,7 @@ resource "aws_instance" "on_demand" {
   instance_type = var.INSTANCE_TYPE
   vpc_security_group_ids = [aws_security_group.allow-app.id]
   subnet_id = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_ID, count.index)
+  iam_instance_profile = "practice-admin"
 
 }
 
