@@ -11,7 +11,7 @@ resource "null_resource" "app" {
           host     = element(local.INSTANCE_IPS, count.index)
   }
     inline = [
-      "ansible-pull -U https://github.com/23-Pravallika/Ansible.git robo-pull.yml -e ENV=dev -e COMPONENT=cart -e APP_VERSION=${var.APP_VERSION}"
+      "ansible-pull -U https://github.com/23-Pravallika/Ansible.git robo-pull.yml -e ENV=dev -e COMPONENT=${var.COMPONENT} -e APP_VERSION=${var.APP_VERSION}"
     ]
   }
 }
