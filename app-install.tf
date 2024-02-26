@@ -1,6 +1,6 @@
 resource "null_resource" "app" {
  //   triggers = {ver = var.APP_VERSION} // Whenever these is a change in the versio only during that time it will run.
-    triggers = {always_run = true} // This will run all the time
+    triggers = {timestamp = timestamp()} // This will run all the time
   count = var.OD_INSTANCE_COUNT + var.SPOT_INSTANCE_COUNT
 
   provisioner "remote-exec" {
