@@ -7,7 +7,15 @@ data "terraform_remote_state" "vpc" {
     region = "us-east-1"
     }
 }
+data "terraform_remote_state" "db" {
+  backend = "s3"
 
+  config = {
+    bucket = "buck-tf-state"
+    key    = "databases/${var.ENV}/terraform.tfstate"
+    region = "us-east-1"
+    }
+}
 
 data "terraform_remote_state" "alb" {
   backend = "s3"

@@ -11,7 +11,7 @@ resource "null_resource" "app" {
           host     = element(local.INSTANCE_IPS, count.index)
   }
     inline = [
-      "ansible-pull -U https://github.com/23-Pravallika/Ansible.git robo-pull.yml -e ENV=dev -e COMPONENT=${var.COMPONENT} -e APP_VERSION=${var.APP_VERSION}"
+      "ansible-pull -U https://github.com/23-Pravallika/Ansible.git robo-pull.yml -e MONGODB_ENDPOINT=${data.terraform_remote_state.db.outputs.DOCDB_ENDPOINT} -e ENV=dev -e COMPONENT=${var.COMPONENT} -e APP_VERSION=${var.APP_VERSION}"
     ]
   }
 }
