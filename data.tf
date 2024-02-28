@@ -7,6 +7,7 @@ data "terraform_remote_state" "vpc" {
     region = "us-east-1"
     }
 }
+
 data "terraform_remote_state" "db" {
   backend = "s3"
 
