@@ -31,7 +31,7 @@ data "terraform_remote_state" "alb" {
 
 data "aws_ami" "my_ami" {
   most_recent      = true
-  name_regex       = "Lab-ansible-ami"
+  name_regex       = "ansible-installed-ami"
   owners           = ["self"]
 }
 
