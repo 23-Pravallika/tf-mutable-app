@@ -8,9 +8,6 @@ resource "aws_spot_instance_request" "spot" {
   subnet_id = element(data.terraform_remote_state.vpc.outputs.PRIVATE_SUBNET_ID, count.index)
   iam_instance_profile = "practice-admin"
   
-  tags = {
-    Name = "${var.COMPONENT}-${var.ENV}-spot"
-  }
 }
 
 # creates on Demand instance
