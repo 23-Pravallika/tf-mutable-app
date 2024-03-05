@@ -36,7 +36,7 @@ egress {
  }
 
 tags = {
-    Name = "robot-${var.COMPONENT}-${var.ENV}-sg"
+    Name = "robo-${var.COMPONENT}-${var.ENV}-sg"
   }
 }
 
